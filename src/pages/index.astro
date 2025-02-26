@@ -1,12 +1,36 @@
 ---
-import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+import "../pages/css/global.css";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const tester = await fetch(
+  "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Uddannelse?select=*",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+    },
+  }
+).then((test) => test.json());
+
+console.log(tester);
 ---
 
 <Layout>
-  <p>Hello World</p>
-  <Welcome />
+  <header>
+    <nav>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Home</a></li>
+    </nav>
+  </header>
+  <main>
+    {
+      tester.map((svcol) => {
+        return <p>{svcol.test}</p>;
+      })
+    }
+  </main>
+  <footer></footer>
 </Layout>
