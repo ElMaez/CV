@@ -1,3 +1,34 @@
+@font-face {
+  font-family: kalam, sans-serif;
+  src: url(/src/assets/fonts/Kalam-Bold.ttf);
+}
+
+:root {
+  --tekstFont: kalam;
+
+  --fontSizeMenu: 1.5rem;
+  --fontWeightMenu: 600;
+  --colorMenu: #a2c887;
+}
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Global */
+nav ul li a {
+  font-family: var(--tekstFont);
+  font-size: var(--fontSizeMenu);
+  font-weight: var(--fontWeightMenu);
+  color: var(--colorMenu);
+
+  text-decoration: none;
+}
+nav ul li {
+  list-style: none;
+}
+
 body {
   margin: auto;
   width: 90%;
@@ -7,11 +38,15 @@ body {
 }
 
 header {
-  margin-top: 2rem;
-  background-image: url(/src/assets/img/DSC08462.jpg);
+  background-image: linear-gradient(
+      260deg,
+      rgb(0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.4) 35%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(/src/assets/img/DSC08462Flip.png);
   background-repeat: no-repeat;
-  background-position: 60% 18%;
-  transform: rotateY(180deg);
+  background-position: 30% 18%;
 
   border-radius: 1rem;
   border: solid 0.4rem rgb(15, 15, 15);
@@ -19,10 +54,27 @@ header {
   height: 30rem;
 }
 
+/* Not Global */
+nav {
+  height: 100%;
+  padding: 5rem 2rem;
+}
+nav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  row-gap: 0.5rem;
+}
 li {
-  list-style: none;
+  grid-column: 2/-1;
+  width: 100%;
+  height: 2.5rem;
+  line-height: 1.5;
 }
 li a {
-  color: #a2c887;
-  text-decoration: none;
+  float: right;
+}
+nav ul li a:hover {
+  border-bottom: solid 3px #a2c887;
+  border-radius: 2px;
 }
