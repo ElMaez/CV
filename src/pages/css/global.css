@@ -53,28 +53,3 @@ header {
 
   height: 30rem;
 }
-
-/* Not Global */
-nav {
-  height: 100%;
-  padding: 5rem 2rem;
-}
-nav ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  row-gap: 0.5rem;
-}
-li {
-  grid-column: 2/-1;
-  width: 100%;
-  height: 2.5rem;
-  line-height: 1.5;
-}
-li a {
-  float: right;
-}
-nav ul li a:hover {
-  border-bottom: solid 3px #a2c887;
-  border-radius: 2px;
-}
