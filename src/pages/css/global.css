@@ -27,6 +27,7 @@ nav ul li a {
 }
 nav ul li {
   list-style: none;
+  /* outline: dashed 2px rgb(0, 255, 13); */
 }
 
 body {
