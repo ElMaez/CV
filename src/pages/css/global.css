@@ -27,9 +27,12 @@ body {
   margin: auto;
   width: 90%;
   height: 100%;
+
+  padding-top: 2rem;
 }
 main {
   padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 /* Global */
 nav ul li a {
@@ -58,4 +61,28 @@ p {
   font-family: var(--tekstFont);
   font-weight: var(--fontWeight1);
   font-size: var(--pSize);
+  line-height: 1.6;
+}
+.h2Underline {
+  width: 70%;
+  height: 5px;
+  background-color: var(--colorMenu);
+
+  margin: 0.2rem 0 2rem 0;
+  border-radius: 2px;
+}
+
+section.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  margin-bottom: 8rem;
+}
+section.container h2 {
+  grid-column: 1/-1;
+  grid-row: 1;
+}
+section.container .h2Underline {
+  grid-column: 1/-1;
+  grid-row: 2;
 }

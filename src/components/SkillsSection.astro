@@ -13,29 +13,12 @@ const programs = await fetch(
 ).then((programList) => programList.json());
 ---
 
-<h2>Qualifications</h2>
-<div class="h1Underline"></div>
 <section class="container">
+  <h2>Qualifications</h2>
+  <div class="h2Underline"></div>
   {
     programs.map((program) => {
       return <Programs programdata={program} />;
     })
   }
 </section>
-
-<style>
-  .h1Underline {
-    width: 70%;
-    height: 5px;
-    background-color: var(--colorMenu);
-
-    margin: 0.2rem 0 2rem 0;
-    border-radius: 2px;
-  }
-
-  section.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-  }
-</style>

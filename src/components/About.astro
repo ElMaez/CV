@@ -1,0 +1,37 @@
+---
+const abouts = await fetch(
+  "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/About?select=*",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+    },
+  }
+).then((aboutsList) => aboutsList.json());
+
+console.log(abouts);
+---
+
+<section class="container">
+  <h2>About Me</h2>
+  <div class="h2Underline"></div>
+  {
+    abouts.map((about) => {
+      return <p>{about.tekst}</p>;
+    })
+  }
+</section>
+
+<style>
+  section.container h2,
+  section.container .h2Underline {
+    justify-self: center;
+  }
+
+  p {
+    width: 55ch;
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+</style>

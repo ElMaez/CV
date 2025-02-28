@@ -1,7 +1,5 @@
 ---
 const { programdata } = Astro.props;
-
-console.log(programdata);
 ---
 
 <section class="programSection">
@@ -23,14 +21,11 @@ console.log(programdata);
       },
     }
   ).then((programList) => programList.json());
-  console.log(programs);
   programs.forEach((programdata) => {
     let dotSektion = document.getElementById(`dots_${programdata.id}`);
     let solidDots = programdata.dots;
 
     for (var i = 0; i < 5; i++) {
-      console.log("solidDots");
-
       if (solidDots > i) {
         dotSektion!.innerHTML += `<i class="fa-sharp fa-solid fa-circle fa-xl" style="color: black"></i>`;
       } else {
