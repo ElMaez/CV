@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import "../pages/css/global.css";
 
 const tester = await fetch(
-  "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Uddannelse?select=*",
+  "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Education?select=*",
   {
     method: "GET",
     headers: {
@@ -26,4 +26,3 @@ console.log(tester);
   </main>
   <footer></footer>
 </Layout>
-

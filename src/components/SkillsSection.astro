@@ -1,0 +1,23 @@
+---
+import Programs from "./programs.astro";
+
+const programs = await fetch(
+  "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Programs?select=*",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+    },
+  }
+).then((programs) => programs.json());
+---
+
+{
+  programs.forEach((program) => {
+    return <Programs programdata={program} />;
+  })
+}
+
+<script src="https://kit.fontawesome.com/094ef135cc.js" crossorigin="anonymous"
+></script>
