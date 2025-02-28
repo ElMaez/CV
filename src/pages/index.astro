@@ -1,4 +1,5 @@
 ---
+import SkillsSection from "../components/SkillsSection.astro";
 import Layout from "../layouts/Layout.astro";
 import "../pages/css/global.css";
 
@@ -23,6 +24,7 @@ console.log(tester);
         return <p>{svcol.test}</p>;
       })
     }
+    <SkillsSection />
   </main>
   <footer></footer>
 </Layout>
