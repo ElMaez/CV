@@ -1,10 +1,78 @@
 ---
-const { program } = Astro.props;
+const { programdata } = Astro.props;
 
 console.log(programdata);
 ---
 
-<section>
+<section class="programSection">
   <p>{programdata.titel}</p>
+  <i
+    class=`noget ${programdata.fontAwesomeClass}`
+    style={programdata.fontAwesomeStyle}></i>
+  <div id=`dots_${programdata.id}` class="dots"></div>
 </section>
-<script></script>
+
+<script>
+  const programs = await fetch(
+    "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Programs?select=*",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+      },
+    }
+  ).then((programList) => programList.json());
+  console.log(programs);
+  programs.forEach((programdata) => {
+    let dotSektion = document.getElementById(`dots_${programdata.id}`);
+    let solidDots = programdata.dots;
+
+    for (var i = 0; i < 5; i++) {
+      console.log("solidDots");
+
+      if (solidDots > i) {
+        dotSektion!.innerHTML += `<i class="fa-sharp fa-solid fa-circle fa-xl" style="color: black"></i>`;
+      } else {
+        dotSektion!.innerHTML += `<i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i>`;
+      }
+    }
+  });
+</script>
+
+<style>
+  .programSection {
+    grid-column: span 1;
+    grid-row: span 1;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 5fr;
+    grid-template-rows: 1fr 2fr;
+    column-gap: 1rem;
+    margin-top: 1rem;
+    align-items: center;
+  }
+  p {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+
+  .noget {
+    grid-column: 1/2;
+    grid-row: 1/-1;
+
+    justify-self: center;
+  }
+  .dots {
+    width: 90%;
+    height: 100%;
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+
+    display: flex;
+    flex-direction: row;
+
+    column-gap: 0.5rem;
+    padding-top: 1rem;
+  }
+</style>

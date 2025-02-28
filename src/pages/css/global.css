@@ -6,8 +6,16 @@
 :root {
   --tekstFont: kalam;
 
-  --fontSizeMenu: 1.5rem;
-  --fontWeightMenu: 600;
+  --fontWeight1: 700;
+  --fontWeight2: 400;
+  --fontWeight3: 300;
+
+  --h1: 2.986rem;
+  --h2: 2.488rem;
+  --h3: 2.074rem;
+  --h4: 1.728rem;
+  --pSize: 1rem;
+
   --colorMenu: #a2c887;
 }
 * {
@@ -15,12 +23,19 @@
   padding: 0px;
   margin: 0px;
 }
-
+body {
+  margin: auto;
+  width: 90%;
+  height: 100%;
+}
+main {
+  padding-top: 2rem;
+}
 /* Global */
 nav ul li a {
   font-family: var(--tekstFont);
-  font-size: var(--fontSizeMenu);
-  font-weight: var(--fontWeightMenu);
+  font-size: var(--h4);
+  font-weight: var(--fontWeight1);
   color: var(--colorMenu);
 
   text-decoration: none;
@@ -29,28 +44,18 @@ nav ul li {
   list-style: none;
   /* outline: dashed 2px rgb(0, 255, 13); */
 }
-
-body {
-  margin: auto;
-  width: 90%;
-  height: 100%;
-  background-color: rgb(218, 196, 168);
-  outline: dashed 2px red;
+h1 {
+  font-family: var(--tekstFont);
+  font-weight: var(--fontWeight1);
+  font-size: var(--h1);
 }
-
-header {
-  background-image: linear-gradient(
-      260deg,
-      rgb(0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.4) 35%,
-      rgba(0, 0, 0, 0) 100%
-    ),
-    url(/src/assets/img/DSC08462Flip.png);
-  background-repeat: no-repeat;
-  background-position: 30% 18%;
-
-  border-radius: 1rem;
-  border: solid 0.4rem rgb(15, 15, 15);
-
-  height: 30rem;
+h2 {
+  font-family: var(--tekstFont);
+  font-weight: var(--fontWeight1);
+  font-size: var(--h2);
+}
+p {
+  font-family: var(--tekstFont);
+  font-weight: var(--fontWeight1);
+  font-size: var(--pSize);
 }

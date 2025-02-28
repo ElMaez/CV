@@ -1,5 +1,5 @@
 ---
-import Programs from "./Programs.astro";
+import Programs from "../components/Programs.astro";
 
 const programs = await fetch(
   "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Programs?select=*",
@@ -10,14 +10,32 @@ const programs = await fetch(
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
     },
   }
-).then((programs) => programs.json());
+).then((programList) => programList.json());
 ---
 
-{
-  programs.forEach((program) => {
-    return <Programs programdata={program} />;
-  })
-}
+<h2>Qualifications</h2>
+<div class="h1Underline"></div>
+<section class="container">
+  {
+    programs.map((program) => {
+      return <Programs programdata={program} />;
+    })
+  }
+</section>
 
-<script src="https://kit.fontawesome.com/094ef135cc.js" crossorigin="anonymous"
-></script>
+<style>
+  .h1Underline {
+    width: 70%;
+    height: 5px;
+    background-color: var(--colorMenu);
+
+    margin: 0.2rem 0 2rem 0;
+    border-radius: 2px;
+  }
+
+  section.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+</style>

@@ -2,28 +2,10 @@
 import SkillsSection from "../components/SkillsSection.astro";
 import Layout from "../layouts/Layout.astro";
 import "../pages/css/global.css";
-
-const tester = await fetch(
-  "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Education?select=*",
-  {
-    method: "GET",
-    headers: {
-      apikey:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
-    },
-  }
-).then((test) => test.json());
-
-console.log(tester);
 ---
 
 <Layout>
   <main>
-    {
-      tester.map((svcol) => {
-        return <p>{svcol.test}</p>;
-      })
-    }
     <SkillsSection />
   </main>
   <footer></footer>
