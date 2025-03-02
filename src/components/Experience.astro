@@ -1,0 +1,132 @@
+---
+const experiences = await fetch(
+  "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Experience?select=*",
+  {
+    method: "GET",
+    headers: {
+      apikey:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+    },
+  }
+).then((experiencesList) => experiencesList.json());
+---
+
+<section class="experienceContainer">
+  <div id="experienceTitel">
+    <h2>Experience</h2>
+    <div class="h2Underline"></div>
+  </div>
+  <div class="past">
+    {
+      experiences.map((experience) => {
+        return (
+          <div id={experience.slug}>
+            <h3>{experience.place}</h3>
+            <h4>{experience.titel}</h4>
+            <ul>
+              <li class="point_1">{experience.punkt1}</li>
+              <li class="point_2">{experience.punkt2}</li>
+              <li class="point_3">{experience.punkt3}</li>
+              <li class="point_4">{experience.punkt4}</li>
+            </ul>
+          </div>
+        );
+      })
+    }
+  </div>
+
+  <div id="experiencesliderNav">
+    <a href="#"><i class="fa-solid fa-angle-left fa-2xl"></i></a>
+    <div id="experiencesliderDots"></div>
+    <a href="#"><i class="fa-solid fa-angle-right fa-2xl"></i></a>
+  </div>
+</section>
+
+<script>
+  const experiences = await fetch(
+    "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Experience?select=*",
+    {
+      method: "GET",
+      headers: {
+        apikey:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+      },
+    }
+  ).then((experiencesList) => experiencesList.json());
+
+  experiences.forEach((experience) => {
+    let slug = experience.slug;
+    if (experience.id) {
+      console.log("Hi!");
+      document.getElementById("experiencesliderDots")!.innerHTML +=
+        `<a href="#${slug}"><i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
+    } else {
+      console.log("Nå");
+    }
+  });
+</script>
+
+<style>
+  section.experienceContainer {
+    min-width: 450px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 8rem;
+    /* outline: dashed 2px red; */
+  }
+  #experienceTitel {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+  }
+
+  div.past {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+  div.past div {
+    min-width: 100%;
+    height: 300px;
+  }
+  div.past div ul {
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+  div.past div ul li {
+    margin-top: 0.5rem;
+  }
+  div.past div ul li:nth-child(2) {
+    margin-left: 1rem;
+  }
+  div.past div ul li:nth-child(3) {
+    margin-left: 2rem;
+  }
+  div.past div ul li:nth-child(4) {
+    margin-left: 3rem;
+  }
+
+  /* Slider */
+  #experiencesliderNav {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    justify-self: center;
+    align-self: center;
+  }
+  #experiencesliderNav a {
+    justify-self: center;
+    align-self: center;
+  }
+  #experiencesliderDots {
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+    justify-self: center;
+    align-self: center;
+  }
+</style>

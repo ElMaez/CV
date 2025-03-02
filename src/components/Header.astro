@@ -5,11 +5,15 @@ import "../pages/css/animation.css";
 <header>
   <nav>
     <ul>
-      <li><a class="menuBtn" href="#">Home</a></li>
-      <li><a class="menuBtn" href="#">Qualifications</a></li>
-      <li><a class="menuBtn" href="#">About Me</a></li>
-      <li><a class="menuBtn" href="#">Education</a></li>
-      <li><a class="menuBtn" href="#">Experience</a></li>
+      <li class="menuLi"><a class="menuBtn" href="#">Home</a></li>
+      <li class="menuLi">
+        <a class="menuBtn" href="#qualifications">Qualifications</a>
+      </li>
+      <li class="menuLi"><a class="menuBtn" href="#about">About Me</a></li>
+      <li class="menuLi"><a class="menuBtn" href="#education">Education</a></li>
+      <li class="menuLi">
+        <a class="menuBtn" href="#experience">Experience</a>
+      </li>
     </ul>
   </nav>
 </header>
@@ -41,7 +45,7 @@ import "../pages/css/animation.css";
     grid-template-rows: 1fr;
     row-gap: 0.5rem;
   }
-  li {
+  nav ul li {
     grid-column: 2/-1;
 
     display: flex;
@@ -57,7 +61,7 @@ import "../pages/css/animation.css";
 </style>
 
 <script>
-  let menuBnt = document.querySelectorAll("li");
+  let menuBnt = document.querySelectorAll(".menuLi");
   menuBnt.forEach((Bnt) => {
     Bnt.addEventListener("mouseenter", () => {
       Bnt.innerHTML += `<div id="line" class="aHover"></div>`;
