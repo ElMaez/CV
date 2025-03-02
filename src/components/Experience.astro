@@ -57,7 +57,6 @@ const experiences = await fetch(
   experiences.forEach((experience) => {
     let slug = experience.slug;
     if (experience.id) {
-      console.log("Hi!");
       document.getElementById("experiencesliderDots")!.innerHTML +=
         `<a href="#${slug}"><i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black "></i></a>`;
     } else {

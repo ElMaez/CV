@@ -59,7 +59,6 @@ console.log(educations);
   educations.forEach((education) => {
     let slug = education.slug;
     if (education.id) {
-      console.log("Hi!");
       document.getElementById("educationsliderDots")!.innerHTML +=
         `<a href="#${slug}"><i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
     } else {

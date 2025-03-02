@@ -64,7 +64,11 @@ import "../pages/css/animation.css";
   let menuBnt = document.querySelectorAll(".menuLi");
   menuBnt.forEach((Bnt) => {
     Bnt.addEventListener("mouseenter", () => {
-      Bnt.innerHTML += `<div id="line" class="aHover"></div>`;
+      if (Bnt.length > 0) {
+        console.log("Welp!");
+      } else {
+        Bnt.innerHTML += `<div id="line" class="aHover"></div>`;
+      }
     });
     Bnt.addEventListener("mouseleave", () => {
       let divn = document.getElementById("line") as HTMLElement;
