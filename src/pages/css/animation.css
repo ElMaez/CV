@@ -1,6 +1,6 @@
 .aHover {
   height: 2px;
-  animation: menuHover 0.6s 1 linear both;
+  animation: menuHover 0.6s 1 ease-in both;
   /* outline: solid 2px red; */
 }
 
