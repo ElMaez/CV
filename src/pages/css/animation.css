@@ -1,6 +1,6 @@
 .aHover {
   height: 2px;
-  animation: menuHover 0.6s 1 ease-in both;
+  animation: menuHover 0.6s 1 linear both;
   /* outline: solid 2px red; */
 }
 
@@ -20,7 +20,7 @@
   animation: startanimation 0.6s 1 ease-in both;
 }
 
-@keyframes menuHover {
+@keyframes startanimation {
   0% {
     opacity: 0;
   }
