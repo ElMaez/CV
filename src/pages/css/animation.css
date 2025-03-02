@@ -15,3 +15,17 @@
     transform: translateX(80%);
   }
 }
+
+.startanimation {
+  animation: startanimation 0.6s 1 ease-in both;
+}
+
+@keyframes menuHover {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
