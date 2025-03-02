@@ -11,7 +11,7 @@ const experiences = await fetch(
 ).then((experiencesList) => experiencesList.json());
 ---
 
-<section class="experienceContainer">
+<section id="experience" class="experienceContainer">
   <div id="experienceTitel">
     <h2>Experience</h2>
     <div class="h2Underline"></div>
@@ -59,7 +59,7 @@ const experiences = await fetch(
     if (experience.id) {
       console.log("Hi!");
       document.getElementById("experiencesliderDots")!.innerHTML +=
-        `<a href="#${slug}"><i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
+        `<a href="#${slug}"><i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black "></i></a>`;
     } else {
       console.log("Nå");
     }
@@ -73,8 +73,7 @@ const experiences = await fetch(
     display: flex;
     flex-direction: column;
 
-    margin-bottom: 6rem;
-    /* outline: dashed 2px red; */
+    margin-bottom: 16rem;
   }
   #experienceTitel {
     display: flex;

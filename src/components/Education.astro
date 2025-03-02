@@ -13,7 +13,7 @@ const educations = await fetch(
 console.log(educations);
 ---
 
-<section class="educationContainer">
+<section id="education" class="educationContainer">
   <div id="educationTitel">
     <h2>Education</h2>
     <div class="h2Underline"></div>
@@ -69,6 +69,9 @@ console.log(educations);
 </script>
 
 <style>
+  #education {
+    scroll-margin-top: 100px;
+  }
   section.educationContainer {
     min-width: 450px;
     min-height: 300px;

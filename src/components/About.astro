@@ -11,7 +11,7 @@ const abouts = await fetch(
 ).then((aboutsList) => aboutsList.json());
 ---
 
-<section class="container">
+<section id="about" class="container">
   <h2>About Me</h2>
   <div class="h2Underline"></div>
   {
@@ -22,6 +22,9 @@ const abouts = await fetch(
 </section>
 
 <style>
+  #about {
+    scroll-margin-top: 100px;
+  }
   section.container h2,
   section.container .h2Underline {
     justify-self: center;
