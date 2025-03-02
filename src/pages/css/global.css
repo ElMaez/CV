@@ -35,7 +35,8 @@ main {
   padding-bottom: 2rem;
 }
 /* Global */
-header nav ul li a {
+header nav ul li a,
+footer nav ul li a {
   font-family: var(--tekstFont);
   font-size: var(--h4);
   font-weight: var(--fontWeight1);
@@ -43,7 +44,8 @@ header nav ul li a {
 
   text-decoration: none;
 }
-header nav ul li {
+header nav ul li,
+footer nav ul li {
   list-style: none;
   /* outline: dashed 2px rgb(0, 255, 13); */
 }
