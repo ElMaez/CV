@@ -5,9 +5,13 @@ const { programdata } = Astro.props;
 <section class="programSection">
   <p>{programdata.titel}</p>
   <i
-    class=`noget ${programdata.fontAwesomeClass}`
+    class=`icon ${programdata.fontAwesomeClass}`
     style={programdata.fontAwesomeStyle}></i>
-  <div id=`dots_${programdata.id}` class="dots"></div>
+  <div id="dots_container">
+    <p>Beginner</p>
+    <div id=`dots_${programdata.id}` class="dots"></div>
+    <p>Pro</p>
+  </div>
 </section>
 
 <script>
@@ -24,7 +28,6 @@ const { programdata } = Astro.props;
   programs.forEach((programdata) => {
     let dotSektion = document.getElementById(`dots_${programdata.id}`);
     let solidDots = programdata.dots;
-
     for (var i = 0; i < 5; i++) {
       if (solidDots > i) {
         dotSektion!.innerHTML += `<i class="fa-sharp fa-solid fa-circle fa-xl" style="color: black"></i>`;
@@ -41,22 +44,24 @@ const { programdata } = Astro.props;
     grid-row: span 1;
 
     display: grid;
-    grid-template-columns: 1fr 2fr 5fr;
-    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr 1fr 5fr;
+    grid-template-rows: 1fr;
     column-gap: 1rem;
     margin-top: 1rem;
-    align-items: center;
+    /* outline: dashed 2px rgb(0, 255, 76); */
   }
   p {
     grid-column: 2/3;
     grid-row: 1/2;
   }
 
-  .noget {
+  .icon {
     grid-column: 1/2;
     grid-row: 1/-1;
 
     justify-self: center;
+    align-self: center;
+    /* outline: dashed 2px rgb(247, 0, 255); */
   }
   .dots {
     width: 90%;
@@ -69,5 +74,20 @@ const { programdata } = Astro.props;
 
     column-gap: 0.5rem;
     padding-top: 1rem;
+  }
+  #dots_container {
+    /* outline: dashed 2px red; */
+    display: grid;
+    grid-template-areas: "tekst1 dots tekst2";
+    column-gap: 1rem;
+
+    > * {
+      grid-area: span 1;
+    }
+
+    p {
+      text-align: bottom;
+      /* outline: dashed 2px blue; */
+    }
   }
 </style>
