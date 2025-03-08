@@ -8,6 +8,7 @@ import "../pages/css/animation.css";
       <li class="menuLi"><a class="menuBtn" href="#">Home</a></li>
       <li class="menuLi">
         <a class="menuBtn" href="#qualifications">Qualifications</a>
+        <div class="test"></div>
       </li>
       <li class="menuLi"><a class="menuBtn" href="#about">About Me</a></li>
       <li class="menuLi"><a class="menuBtn" href="#education">Education</a></li>
@@ -50,33 +51,22 @@ import "../pages/css/animation.css";
 
     display: flex;
     flex-direction: column;
+    justify-self: flex-end;
     overflow: hidden;
 
-    width: 100%;
+    width: 50%;
     height: 2.5rem;
   }
   li a {
     text-align: end;
   }
-</style>
 
-<script>
-  let menuBnt = document.querySelectorAll(".menuLi");
-  menuBnt.forEach((Bnt) => {
-    Bnt.addEventListener("mouseenter", () => {
-      if (Bnt.length > 0) {
-        console.log("Welp!");
-      } else {
-        Bnt.innerHTML += `<div id="line" class="aHover"></div>`;
-      }
-    });
-    Bnt.addEventListener("mouseleave", () => {
-      let divn = document.getElementById("line") as HTMLElement;
-      Bnt.removeChild(divn);
-    });
-    Bnt.addEventListener("click", () => {
-      let divn = document.getElementById("line") as HTMLElement;
-      Bnt.removeChild(divn);
-    });
-  });
-</script>
+  li::after {
+    content: "";
+    height: 2px;
+  }
+
+  li:hover:after {
+    animation: menuHover 0.6s 1 linear both;
+  }
+</style>
