@@ -54,19 +54,28 @@ import "../pages/css/animation.css";
     justify-self: flex-end;
     overflow: hidden;
 
-    width: 50%;
+    width: 40%;
     height: 2.5rem;
   }
-  li a {
+
+  a {
+    position: relative;
     text-align: end;
-  }
 
-  li::after {
-    content: "";
-    height: 2px;
-  }
+    &::before {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 2px;
+      background: var(--colorMenu);
+      scale: 0 1;
+      transform-origin: left;
+      transition: scale 0.8s linear;
+    }
 
-  li:hover:after {
-    animation: menuHover 0.6s 1 linear both;
+    &:hover::before {
+      scale: 1 1;
+      transform-origin: right;
+    }
   }
 </style>
