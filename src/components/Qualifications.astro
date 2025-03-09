@@ -16,14 +16,43 @@ const programs = await fetch(
 <section id="qualifications" class="container">
   <h2>Qualifications</h2>
   <div class="h2Underline"></div>
-  {
-    programs.map((program) => {
-      return <Programs programdata={program} />;
-    })
-  }
+  <div id="programs">
+    {
+      programs.map((program) => {
+        return <Programs programdata={program} />;
+      })
+    }
+  </div>
 </section>
 <style>
   #qualifications {
     scroll-margin-top: 100px;
+    container: container / inline-size;
+    /* outline: dashed 2px red; */
+  }
+  #programs {
+    grid-column: 1/-1;
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 3rem;
+  }
+  @container container (width > 700px) {
+    #programs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      column-gap: 2rem;
+    }
+  }
+  @container container (width > 1000px) {
+    #programs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      column-gap: 2rem;
+    }
   }
 </style>
