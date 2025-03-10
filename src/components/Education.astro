@@ -60,24 +60,19 @@ console.log(educations);
     }
   ).then((educationsList) => educationsList.json());
 
+  let selectedDotIndex = 0;
   educations.forEach((education) => {
     let slug = education.slug;
     if (education.id) {
       document.getElementById("educationsliderDots")!.innerHTML +=
-        `<a href="#${slug}"><i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
+        `<a href="#${slug}"><i id="#${slug}_dot" class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
     } else {
       console.log("Nå");
     }
   });
-  let slideIndex = 0;
-  function prevSlide() {}
-  function nextSlide() {}
 </script>
 
 <style>
-  #education {
-    scroll-margin-top: 100px;
-  }
   section.educationContainer {
     min-width: 450px;
     min-height: 300px;
@@ -100,6 +95,7 @@ console.log(educations);
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    scroll-margin-top: 400px;
   }
   div.past div {
     min-width: 100%;
