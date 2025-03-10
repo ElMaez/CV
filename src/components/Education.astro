@@ -49,30 +49,46 @@ console.log(educations);
 </section>
 
 <script>
-  const educations = await fetch(
-    "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Education?select=*",
-    {
-      method: "GET",
-      headers: {
-        apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
-      },
-    }
-  ).then((educationsList) => educationsList.json());
+  window.addEventListener("load", dots);
+  let educations;
 
-  let selectedDotIndex = 0;
-  educations.forEach((education) => {
-    let slug = education.slug;
-    if (education.id) {
-      document.getElementById("educationsliderDots")!.innerHTML +=
-        `<a href="#${slug}"><i id="#${slug}_dot" class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
-    } else {
-      console.log("Nå");
-    }
-  });
+  function nogetBedre(element) {
+    educations.forEach((education) => {
+      let iElement = document.getElementById(`${education.slug}_dot`);
+      iElement.classList.remove("dot-active");
+    });
+    element.firstChild.classList.add("dot-active");
+  }
+  window.nogetBedre = nogetBedre;
+  async function dots() {
+    educations = await fetch(
+      "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Education?select=*",
+      {
+        method: "GET",
+        headers: {
+          apikey:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+        },
+      }
+    ).then((educationsList) => educationsList.json());
+
+    educations.forEach((education) => {
+      let slug = education.slug;
+      if (education.id) {
+        document.getElementById("educationsliderDots").innerHTML +=
+          `<a href="#${slug}" onclick='nogetBedre(this);'><i id="${slug}_dot"  class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
+      } else {
+        console.log("Nå");
+      }
+    });
+    nogetBedre(document.getElementById(`${educations[0]}_dot`));
+  }
 </script>
 
 <style>
+  .dot-active {
+    outline: dashed 2px red;
+  }
   section.educationContainer {
     min-width: 450px;
     min-height: 300px;
