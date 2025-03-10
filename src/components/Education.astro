@@ -72,22 +72,27 @@ console.log(educations);
       }
     ).then((educationsList) => educationsList.json());
 
+    let selectedDotIndex = 0;
+
     educations.forEach((education) => {
       let slug = education.slug;
       if (education.id) {
         document.getElementById("educationsliderDots").innerHTML +=
-          `<a href="#${slug}" onclick='nogetBedre(this);'><i id="${slug}_dot"  class="fa-sharp fa-regular fa-circle fa-xl" style="color: black"></i></a>`;
+          `<a href="#${slug}" onclick='nogetBedre(this);'><i id="${slug}_dot" class="fa-sharp fa-regular fa-circle fa-xl ${selectedDotIndex === 0 ? "dot-active" : ""}" style="color: black"></i></a>`;
       } else {
         console.log("Nå");
       }
+      selectedDotIndex++;
     });
-    nogetBedre(document.getElementById(`${educations[0]}_dot`));
   }
 </script>
 
 <style>
-  .dot-active {
+  i.dot-active {
+    width: 10rem;
+    height: 10rem;
     outline: dashed 2px red;
+    color: aquamarine;
   }
   section.educationContainer {
     min-width: 450px;
