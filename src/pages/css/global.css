@@ -79,8 +79,8 @@ p {
   line-height: 1.6;
 }
 .h2Underline {
-  max-width: 70%;
-  min-width: 50%;
+  max-width: 20rem;
+  min-width: 15rem;
 
   height: 5px;
   background-color: var(--colorMenu);
