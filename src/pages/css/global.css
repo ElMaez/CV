@@ -86,8 +86,10 @@ p {
   height: 5px;
   background-color: var(--colorMenu);
 
-  margin: 0.2rem 0 2rem 0;
   border-radius: 2px;
+}
+.h2Underline:not(#education div, #experience div) {
+  margin: 0.2rem 0 2rem 0;
 }
 
 section.container {
