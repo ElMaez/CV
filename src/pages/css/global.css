@@ -72,7 +72,8 @@ h4 {
   font-weight: var(--fontWeight2);
   font-size: var(--h4);
 }
-p {
+p,
+li {
   font-family: var(--tekstFont);
   font-weight: var(--fontWeight1);
   font-size: var(--pSize);
