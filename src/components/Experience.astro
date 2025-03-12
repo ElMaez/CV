@@ -43,26 +43,42 @@ const experiences = await fetch(
 </section>
 
 <script>
-  const experiences = await fetch(
-    "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Experience?select=*",
-    {
-      method: "GET",
-      headers: {
-        apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
-      },
-    }
-  ).then((experiencesList) => experiencesList.json());
+  window.addEventListener("load", dots);
+  let experiences;
 
-  experiences.forEach((experience) => {
-    let slug = experience.slug;
-    if (experience.id) {
-      document.getElementById("experiencesliderDots")!.innerHTML +=
-        `<a href="#${slug}"><i class="fa-sharp fa-regular fa-circle fa-xl" style="color: black "></i></a>`;
-    } else {
-      console.log("Nå");
-    }
-  });
+  function nogetBedre(element) {
+    experiences.forEach((experience) => {
+      let iElement = document.getElementById(`${experience.slug}_dot`);
+      iElement.classList.remove("dot-active");
+    });
+    element.firstChild.classList.add("dot-active");
+  }
+  window.nogetBedre = nogetBedre;
+  async function dots() {
+    experiences = await fetch(
+      "https://wnstsgdtfjtdgnznycir.supabase.co/rest/v1/Experience?select=*",
+      {
+        method: "GET",
+        headers: {
+          apikey:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Induc3RzZ2R0Zmp0ZGduem55Y2lyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA1OTQ0NDEsImV4cCI6MjA1NjE3MDQ0MX0.gWutEk68vgYO18NOAbycXzhb1JJXOiGhCMSr5Szp3lo",
+        },
+      }
+    ).then((experiencesList) => experiencesList.json());
+
+    let selectedDotIndex = 0;
+
+    experiences.forEach((experience) => {
+      let slug = experience.slug;
+      if (experience.id) {
+        document.getElementById("experiencesliderDots").innerHTML +=
+          `<a href="#${slug}" onclick='nogetBedre(this);'><i id="${slug}_dot" class="fa-sharp fa-regular fa-circle fa-xl ${selectedDotIndex === 0 ? "dot-active" : ""}" style="color: black"></i></a>`;
+      } else {
+        console.log("Nå");
+      }
+      selectedDotIndex++;
+    });
+  }
 </script>
 
 <style>
@@ -102,7 +118,6 @@ const experiences = await fetch(
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    margin-inline: 10%;
   }
   div.past div {
     min-width: 100%;
@@ -111,6 +126,7 @@ const experiences = await fetch(
     display: flex;
     flex-direction: column;
     padding-top: 6rem;
+    padding-inline: 10%;
   }
 
   div.past div ul {

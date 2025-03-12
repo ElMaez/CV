@@ -29,9 +29,9 @@ html {
 }
 body {
   margin: auto;
-  width: 90%;
+  max-width: 100rem;
   height: 100%;
-
+  outline: dashed red;
   padding-top: 2rem;
 }
 main {
@@ -105,4 +105,11 @@ section.container h2 {
 section.container .h2Underline {
   grid-column: 1/-1;
   grid-row: 2;
+}
+.dot-active {
+  &::before {
+    background: rgb(0, 0, 0);
+    border-radius: 50px;
+    clip-path: circle(45% at 50% 50%);
+  }
 }
