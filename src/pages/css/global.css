@@ -31,8 +31,7 @@ body {
   margin: auto;
   max-width: 100rem;
   height: 100%;
-  outline: dashed red;
-  padding-top: 2rem;
+  padding: 2rem;
 }
 main {
   padding-top: 2rem;
