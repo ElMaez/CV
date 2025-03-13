@@ -48,6 +48,9 @@ console.log(educations);
   </div>
 </section>
 
+
+
+
 <script>
   window.addEventListener("load", dots);
   let educations;
@@ -88,11 +91,10 @@ console.log(educations);
 </script>
 
 <style>
-  i.dot-active {
-    width: 10rem;
-    height: 10rem;
-    outline: dashed 2px red;
-    color: aquamarine;
+ .dot-active::before {
+  width: 50px;
+  height:50px;
+    background-color: brown;
   }
   section.educationContainer {
     min-width: 450px;
@@ -158,5 +160,9 @@ console.log(educations);
     column-gap: 0.5rem;
     justify-self: center;
     align-self: center;
+  }
+
+  #educationsliderDots a {
+    background-color: red;
   }
 </style>
