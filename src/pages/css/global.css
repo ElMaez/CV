@@ -36,6 +36,7 @@ body {
 main {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  margin: auto;
 }
 /* Global */
 header nav ul li a,
@@ -108,7 +109,7 @@ section.container .h2Underline {
 }
 .dot-active {
   &::before {
-    background: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0);
     border-radius: 50px;
     clip-path: circle(45% at 50% 50%);
   }
